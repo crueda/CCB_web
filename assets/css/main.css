@@ -3524,7 +3524,7 @@
 
 					#nav ul.links li a:hover {
 						color: inherit !important;
-						background-color: rgba(255, 255, 255, 0.1);
+						background-color: rgba(0, 0, 0, 0.7);
 					}
 
 				#nav ul.links li.active {
