@@ -6,6 +6,15 @@
 		<link href='./logos/maillot.png' rel='shortcut icon' type='image/png'>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+        .youtube-player iframe {
+            display: none;
+        }
+
+        .youtube-player.active iframe {
+            display: block;
+        }
+    </style>
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-loading">
@@ -27,7 +36,7 @@
 							<li><a href="fotos.html">Fotos</a></li>
 						</ul>
 						<ul class="icons">
-							<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+							<li><a href="mailto:clubciclistabenaventano@gmail.com" class="icon fa-send" target="_top"><span class="label">Email</span></a></li>
 							<li><a href="https://www.facebook.com/search/top/?q=club%20ciclista%20benaventano" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 
 						</ul>
@@ -37,11 +46,16 @@
 					<div id="main">
 
 						<!-- Post -->
-							<section class="post">
+							<section id="main_posts" class="post">
 								<header class="major">
 									<span class="date">Actualizado a 14 Noviembre, 2017</span>
 									<h1>Rutas del club</h1>
 									<p>Esta es una lista de las rutas realizadas de manera regular por el club. <br/>Las salidas se hacen con salida de Benavente a las <b>10:00</b> todos los <b>festivos y </b>domingos del año.
+
+	<div class="youtube-player"> <iframe id="frame_video" align="right" width="860" height="315" src="https://www.youtube.com/embed/-ZcI0AcyteM" frameborder="0" allowfullscreen></iframe>
+        <a id="openVideo" href="#" class="youtube-link-start"></a>
+        <a id="closeVideo" href="#" class="youtube-link-stop"></a>
+    </div>
 								</header>
 								
 							</section>
@@ -49,7 +63,8 @@
 							<section class="posts">
 								<article>
 									<header>
-										<h2><a href="#">Ruta 1</a></h2>
+
+										<h2><a href="javascript:open_route();">Ruta 1</a></h2>
 									</header>
 									<a href="#" class="image fit"><img src="rutas/1/ruta.png" alt="" /></a>
 									<p>Benavente - Abraveses - Santibañez de Tera - Melgar de Tera - Camarzana - San Pedro de Ceque - Santibañez de Vidriales - Villaobispo - Brime de Urz - Quiruelas de Vidiriales - Colinas de Trasmonte - Santa Cristina de la Polvorosa</p>
@@ -60,7 +75,7 @@
 								</article>
 								<article>
 									<header>
-										<h2><a href="#">Ruta 2</a></h2>
+										<h2><a href="javascript:open_route();">Ruta 2</a></h2>
 									</header>
 									<a href="#" class="image fit"><img src="rutas/2/ruta.png" alt="" /></a>
 									<p>Benavente - Manganeses de la Polvorosa - Santa Maria de la Vega - Arrabalde - Alcubilla de Nogales - Castrobalbon - Fuente Encalada - Villaobispo - Granucillo - Brime de Uz - Quiruelas de Vidriales - Colinas de Trasmonte - Santa Cristina de la Polvorosa</p>
@@ -81,23 +96,16 @@
 						<section class="split contact">
 							<section>
 								<h3>Teléfono y whatsapp</h3>
-								<p><a href="#">(000) 000-0000</a></p>
+								<p><a href="#">000-000-0000</a></p>
 							</section>
 							<section>
 								<h3>Email</h3>
-								<p><a href="#">clubciclistabenaventano@gmail.com</a></p>
+								<p><a href="mailto:clubciclistabenaventano@gmail.com" traget="_top">clubciclistabenaventano@gmail.com</a></p>
 							</section>
 							<section class="alt">
 								<h3>Direccion</h3>
 								<p>Calle Corrillo de San Nicolás, 4<br />
 								Benavente, 49600</p>
-							</section>
-							<section>
-								<h3>Social</h3>
-								<ul class="icons alt">
-									<li><a href="#" class="icon alt fa-twitter"><span class="label">Twitter</span></a></li>
-									<li><a href="#" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
-								</ul>
 							</section>
 						</section>
 					</footer>
@@ -116,6 +124,42 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script>
+				$(document).ready(function() {
+					  $('#frame_video').width($('#main_posts').width());
+					  $('#frame_video').height($('#frame_video').width()*9/16);
+				});
+
+				var videoOn = false;
+				function open_route(){
+					if (!videoOn) {
+						$('#openVideo').click();
+					} else {
+						$('#closeVideo').click();
+					}
+					videoOn = !videoOn;
+				} 
+
+
+        jQuery('.youtube-player').each(function(){
+            jQuery(this).on('click', '.youtube-link-start', function(){
+                jQuery(this).parent().addClass('active');
+
+                var loc = $(this).siblings('iframe').attr('src');
+                var startloc = loc + "?autoplay=1";
+                $(this).siblings('iframe').attr('src', startloc);
+            });
+
+            jQuery(this).on('click', '.youtube-link-stop', function(){
+                jQuery(this).parent().removeClass('active');
+
+                var loc = $(this).siblings('iframe').attr('src');
+                var stoploc = loc.replace("?autoplay=1", "");
+                $(this).siblings('iframe').attr('src', stoploc);
+            });
+        });
+    </script>
 
 	</body>
 </html>
