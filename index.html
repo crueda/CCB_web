@@ -30,8 +30,103 @@
 		}
 
 		</style>
+
+		<style type='text/css'>
+			#anuncio {
+			position: absolute;
+			border: 0px;
+			padding: 0px;
+			width: 200px;
+			height: 80px;
+			visibility: hidden;
+			z-index: 200;
+			top: 0px;
+			left: 00px;
+			}
+		</style>
+
+
+<script type='text/javascript'>
+//<![CDATA[
+var persistclose=0 //set to 0 or 1. 1 means once the bar is manually closed, it will remain closed for browser session
+var startX = 5 //set x offset of bar in pixels
+var startY = 5 //set y offset of bar in pixels
+var verticalpos="fromtop" //enter "fromtop" or "frombottom"
+
+function iecompattest(){
+return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+}
+
+function get_cookie(Name) {
+var search = Name + "="
+var returnvalue = "";
+if (document.cookie.length > 0) {
+offset = document.cookie.indexOf(search)
+if (offset != -1) {
+offset += search.length
+end = document.cookie.indexOf(";", offset);
+if (end == -1) end = document.cookie.length;
+returnvalue=unescape(document.cookie.substring(offset, end))
+}
+}
+return returnvalue;
+}
+
+function closebar(){
+if (persistclose)
+document.cookie="remainclosed=1"
+document.getElementById("anuncio").style.visibility="hidden"
+}
+
+function staticbar(){
+barheight=document.getElementById("anuncio").offsetHeight
+var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
+var d = document;
+function ml(id){
+var el=d.getElementById(id);
+if (!persistclose || persistclose && get_cookie("remainclosed")=="")
+el.style.visibility="visible"
+if(d.layers)el.style=el;
+el.sP=function(x,y){this.style.left=x+"px";this.style.top=y+"px";};
+el.x = startX;
+if (verticalpos=="fromtop")
+el.y = startY;
+else{
+el.y = ns ? pageYOffset + innerHeight : iecompattest().scrollTop + iecompattest().clientHeight;
+el.y -= startY;
+}
+return el;
+}
+window.stayTopLeft=function(){
+if (verticalpos=="fromtop"){
+var pY = ns ? pageYOffset : iecompattest().scrollTop;
+ftlObj.y += (pY + startY - ftlObj.y)/8;
+}
+else{
+var pY = ns ? pageYOffset + innerHeight - barheight: iecompattest().scrollTop + iecompattest().clientHeight - barheight;
+ftlObj.y += (pY - startY - ftlObj.y)/8;
+}
+ftlObj.sP(ftlObj.x, ftlObj.y);
+setTimeout("stayTopLeft()", 10);
+}
+ftlObj = ml("anuncio");
+stayTopLeft();
+}
+if (window.addEventListener)
+window.addEventListener("load", staticbar, false)
+else if (window.attachEvent)
+window.attachEvent("onload", staticbar)
+else if (document.getElementById)
+window.onload=staticbar
+//]]>
+</script>
 	</head>
 	<body class="is-loading">
+
+<div id='anuncio'>
+<!--a href='Javascript:void' onClick='closebar(); return false'><img align='right' border='0' src='http://4.bp.blogspot.com/_dsEG33PDaHw/S66y-66sXXI/AAAAAAAAAOk/0GDe7kdQj4A/s200/icono-cerrar.png'/></a><br /-->
+<a href='URL del enlace'><img width="200" heigth="80" src='patrocinadores/madyl.png'/></a>
+</div>
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
@@ -62,6 +157,7 @@
 							<li><a href="rutas.html">Rutas</a></li>
 							<li><a href="elements.html">Próximas actividades</a></li>
 							<li><a href="fotos.html">Fotos</a></li>
+							<li><a href="equipacion.html">Equipación</a></li>
 							<li><a href="patrocinadores.html">Patrocinadores</a></li>
 						</ul>
 						<ul class="icons">
@@ -74,7 +170,7 @@
 				<!-- Main -->
 					<div id="main">
 
-<!--img src="./logos/titulo_club.png" /-->
+					<!--img src="./logos/titulo_club.png" /-->
 						
 						<!-- Featured Post -->
 							<article class="post featured">
@@ -108,7 +204,7 @@
 									
 									<p>Club de ciclistas aficcionados fundado en el año 1980 de la mano de Tomás Campo, con la intención de promocionar y disfrutar del ciclismo en la ciudad de Benavente y su Comarca, organizando diferentes actividades.</p>
 								</header>
-								<a href="#" class="image main"><img src="images/img_28055.jpg" alt="" /></a>
+								<!--a href="#" class="image main"><img src="images/img_28055.jpg" alt="" /></a-->
 								<ul class="actions">
 									<li><a href="#footer" class="button big">Contactar</a></li>
 								</ul>
