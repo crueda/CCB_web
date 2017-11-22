@@ -1,5 +1,6 @@
 var gulp = require('gulp');
 var scp = require('gulp-scp');
+var gutil = require('gulp-util');
 var rsync = require("rsyncwrapper");
 
 gulp.task('default', function() {
