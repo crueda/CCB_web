@@ -32,102 +32,160 @@
 		</style>
 
 		<style type='text/css'>
-			#anuncio {
-			position: absolute;
-			border: 0px;
-			padding: 0px;
-			width: 200px;
-			height: 80px;
-			visibility: hidden;
-			z-index: 200;
-			top: 0px;
-			left: 00px;
+			#anuncio1 {
+				position: absolute;
+				border: 0px;
+				padding: 0px;
+				width: 200px;
+				height: 80px;
+				visibility: hidden;
+				z-index: 200;
+				top: 0px;
+				left: 0px;
+			}
+			#anuncio2 {
+				position: absolute;
+				border: 0px;
+				padding: 0px;
+				width: 200px;
+				height: 80px;
+				visibility: hidden;
+				z-index: 200;
+				top: 0px;
+				left: 0px;
 			}
 		</style>
 
 
 <script type='text/javascript'>
 //<![CDATA[
-var persistclose=0 //set to 0 or 1. 1 means once the bar is manually closed, it will remain closed for browser session
-var startX = 5 //set x offset of bar in pixels
-var startY = 5 //set y offset of bar in pixels
+var persistclose=0; //set to 0 or 1. 1 means once the bar is manually closed, it will remain closed for browser session
+var startX = 5;
+var startY = 5;
+var startX_anuncio2 = 5;
+var startY_anuncio2 = 100;
 var verticalpos="fromtop" //enter "fromtop" or "frombottom"
 
 function iecompattest(){
-return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
+	return (document.compatMode && document.compatMode!="BackCompat")? document.documentElement : document.body
 }
 
 function get_cookie(Name) {
-var search = Name + "="
-var returnvalue = "";
-if (document.cookie.length > 0) {
-offset = document.cookie.indexOf(search)
-if (offset != -1) {
-offset += search.length
-end = document.cookie.indexOf(";", offset);
-if (end == -1) end = document.cookie.length;
-returnvalue=unescape(document.cookie.substring(offset, end))
-}
+	var search = Name + "="
+	var returnvalue = "";
+	if (document.cookie.length > 0) {
+	offset = document.cookie.indexOf(search)
+	if (offset != -1) {
+	offset += search.length
+	end = document.cookie.indexOf(";", offset);
+	if (end == -1) end = document.cookie.length;
+	returnvalue=unescape(document.cookie.substring(offset, end))
+	}
 }
 return returnvalue;
 }
 
 function closebar(){
-if (persistclose)
-document.cookie="remainclosed=1"
-document.getElementById("anuncio").style.visibility="hidden"
+	if (persistclose)
+		document.cookie="remainclosed=1";
+	document.getElementById("anuncio1").style.visibility="hidden";
+	document.getElementById("anuncio2").style.visibility="hidden";
 }
 
-function staticbar(){
-barheight=document.getElementById("anuncio").offsetHeight
-var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
-var d = document;
-function ml(id){
-var el=d.getElementById(id);
-if (!persistclose || persistclose && get_cookie("remainclosed")=="")
-el.style.visibility="visible"
-if(d.layers)el.style=el;
-el.sP=function(x,y){this.style.left=x+"px";this.style.top=y+"px";};
-el.x = startX;
-if (verticalpos=="fromtop")
-el.y = startY;
-else{
-el.y = ns ? pageYOffset + innerHeight : iecompattest().scrollTop + iecompattest().clientHeight;
-el.y -= startY;
+function staticbar1(){
+	barheight=document.getElementById("anuncio1").offsetHeight
+	var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
+	var d = document;
+	function ml(id){
+	var el=d.getElementById(id);
+	if (!persistclose || persistclose && get_cookie("remainclosed")=="")
+	el.style.visibility="visible"
+	if(d.layers)el.style=el;
+	el.sP=function(x,y){this.style.left=x+"px";this.style.top=y+"px";};
+	el.x = startX;
+	if (verticalpos=="fromtop")
+	el.y = startY;
+	else{
+	el.y = ns ? pageYOffset + innerHeight : iecompattest().scrollTop + iecompattest().clientHeight;
+	el.y -= startY;
+	}
+	return el;
+	}
+	window.stayTopLeft=function(){
+	if (verticalpos=="fromtop"){
+	var pY = ns ? pageYOffset : iecompattest().scrollTop;
+	ftlObj.y += (pY + startY - ftlObj.y)/8;
+	}
+	else{
+	var pY = ns ? pageYOffset + innerHeight - barheight: iecompattest().scrollTop + iecompattest().clientHeight - barheight;
+	ftlObj.y += (pY - startY - ftlObj.y)/8;
+	}
+	ftlObj.sP(ftlObj.x, ftlObj.y);
+	setTimeout("stayTopLeft()", 10);
+	}
+	ftlObj = ml("anuncio1");
+	stayTopLeft();
 }
-return el;
+
+function staticbar2(){
+	barheight=document.getElementById("anuncio2").offsetHeight
+	var ns = (navigator.appName.indexOf("Netscape") != -1) || window.opera;
+	var d = document;
+	function ml(id){
+	var el=d.getElementById(id);
+	if (!persistclose || persistclose && get_cookie("remainclosed")=="")
+	el.style.visibility="visible"
+	if(d.layers)el.style=el;
+	el.sP=function(x,y){this.style.left=x+"px";this.style.top=y+"px";};
+	el.x = startX_anuncio2;
+	if (verticalpos=="fromtop")
+	el.y = startY_anuncio2;
+	else{
+	el.y = ns ? pageYOffset + innerHeight : iecompattest().scrollTop + iecompattest().clientHeight;
+	el.y -= startY_anuncio2;
+	}
+	return el;
+	}
+	window.stayTopLeft=function(){
+	if (verticalpos=="fromtop"){
+	var pY = ns ? pageYOffset : iecompattest().scrollTop;
+	ftlObj.y += (pY + startY_anuncio2 - ftlObj.y)/8;
+	}
+	else{
+	var pY = ns ? pageYOffset + innerHeight - barheight: iecompattest().scrollTop + iecompattest().clientHeight - barheight;
+	ftlObj.y += (pY - startY_anuncio2- ftlObj.y)/8;
+	}
+	ftlObj.sP(ftlObj.x, ftlObj.y);
+	setTimeout("stayTopLeft()", 10);
+	}
+	ftlObj = ml("anuncio2");
+	stayTopLeft();
 }
-window.stayTopLeft=function(){
-if (verticalpos=="fromtop"){
-var pY = ns ? pageYOffset : iecompattest().scrollTop;
-ftlObj.y += (pY + startY - ftlObj.y)/8;
+
+if (window.addEventListener) {
+	window.addEventListener("load", staticbar1, false)
+	window.addEventListener("load", staticbar2, false)
 }
-else{
-var pY = ns ? pageYOffset + innerHeight - barheight: iecompattest().scrollTop + iecompattest().clientHeight - barheight;
-ftlObj.y += (pY - startY - ftlObj.y)/8;
+else if (window.attachEvent) {
+	window.attachEvent("onload", staticbar1)
+	window.attachEvent("onload", staticbar2)
 }
-ftlObj.sP(ftlObj.x, ftlObj.y);
-setTimeout("stayTopLeft()", 10);
+else if (document.getElementById) {
+	window.onload=staticbar1
+	window.onload=staticbar2
 }
-ftlObj = ml("anuncio");
-stayTopLeft();
-}
-if (window.addEventListener)
-window.addEventListener("load", staticbar, false)
-else if (window.attachEvent)
-window.attachEvent("onload", staticbar)
-else if (document.getElementById)
-window.onload=staticbar
 //]]>
 </script>
 	</head>
 	<body class="is-loading">
 
-<div id='anuncio'>
-<!--a href='Javascript:void' onClick='closebar(); return false'><img align='right' border='0' src='http://4.bp.blogspot.com/_dsEG33PDaHw/S66y-66sXXI/AAAAAAAAAOk/0GDe7kdQj4A/s200/icono-cerrar.png'/></a><br /-->
-<a href='URL del enlace'><img width="200" heigth="80" src='patrocinadores/madyl.png'/></a>
+<div id='anuncio1'>
+<a href='http://www.parador.es/es'><img width="200" heigth="80" src='patrocinadores/paradores.png'/></a>
+<a href='https://www.facebook.com/dualbikebenavente/'><img width="200" heigth="80" src='patrocinadores/dual.png'/></a>
+<a href='http://www.restaurantelosvalles.es/e'><img width="200" heigth="80" src='patrocinadores/losvalles.png'/></a>
+<a href='https://www.elpastor.com/index.php'><img width="200" heigth="80" src='patrocinadores/pastor.jpg'/></a>
+<a href='Javascript:void' onClick='closebar(); return false'><img align='right' border='0' src='http://4.bp.blogspot.com/_dsEG33PDaHw/S66y-66sXXI/AAAAAAAAAOk/0GDe7kdQj4A/s200/icono-cerrar.png'/></a><br />
 </div>
-
 		<!-- Wrapper -->
 			<div id="wrapper" class="fade-in">
 
