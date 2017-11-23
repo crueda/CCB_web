@@ -1,0 +1,166 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Club Ciclista Benaventano</title>
+		<meta charset="utf-8" />
+		<link href='./logos/maillot.png' rel='shortcut icon' type='image/png'>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<style>
+        .youtube-player iframe {
+            display: none;
+        }
+
+        .youtube-player.active iframe {
+            display: block;
+        }
+    </style>
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+	</head>
+	<body class="is-loading">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Club Ciclista Benaventano</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="rutas.html">Rutas</a></li>
+							<li><a href="actividades.html">Próximas actividades</a></li>
+							<li class="active"><a href="equipacion.html">Equipación</a></li>
+							<li><a href="fotos.html">Fotos</a></li>
+							<li><a href="patrocinadores.html">Patrocinadores</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="mailto:info@clubciclistabenaventano.es" class="icon fa-send" target="_top"><span class="label">Email</span></a></li>
+							<li><a href="https://www.facebook.com/CLUB-CICLISTA-BENAVENTANO-747532295293912/" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section id="main_posts" class="post">
+								<header class="major">
+									<h1>Productos del club</h1>
+								</header>
+								
+							</section>
+
+							<section class="posts">
+								<article>
+									<header>
+										<h2><a href="javascript:open_route();">Chaleco</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="equipacion/chaleco.png" alt="" /></a>
+								</article>
+								<article>
+									<header>
+										<h2><a href="javascript:open_route();">Maillot largo</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="equipacion/maillot_largo.png" alt="" /></a>
+								</article>
+								<article>
+									<header>
+										<h2><a href="javascript:open_route();">Maillot corto</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="equipacion/maillot_corto.png" alt="" /></a>
+								</article>
+								<article>
+									<header>
+										<h2><a href="javascript:open_route();">Guantes cortos</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="equipacion/guantes_cortos.png" alt="" /></a>
+								</article>
+								<article>
+									<header>
+										<h2><a href="javascript:open_route();">Manguitos</a></h2>
+									</header>
+									<a href="#" class="image fit"><img src="equipacion/manguitos.png" alt="" /></a>
+								</article>
+								
+								
+							</section>
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section class="split contact">
+							<section>
+								<h3>Teléfono y whatsapp</h3>
+								<a href="tel:+34615090832">615 090 832</a>&nbsp;(Luismi)&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="tel:+34625351394">625 35 13 94</a>&nbsp;(Angel)</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:info@clubciclistabenaventano.es" traget="_top">info@clubciclistabenaventano.es</a></p>
+							</section>
+							<section class="alt">
+								<h3>Direccion</h3>
+								<p>Calle Corrillo de San Nicolás, 4<br />
+								49600, Benavente</p>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; 2017</li><li><a href="https://clubciclistabenaventano.es">Club Ciclista Benaventano</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+			<script>
+				$(document).ready(function() {
+					  $('#frame_video').width($('#main_posts').width());
+					  $('#frame_video').height($('#frame_video').width()*9/16);
+				});
+
+				var videoOn = false;
+				function open_route(){
+					if (!videoOn) {
+						$('#openVideo').click();
+					} else {
+						$('#closeVideo').click();
+					}
+					videoOn = !videoOn;
+				} 
+
+
+        jQuery('.youtube-player').each(function(){
+            jQuery(this).on('click', '.youtube-link-start', function(){
+                jQuery(this).parent().addClass('active');
+
+                var loc = $(this).siblings('iframe').attr('src');
+                var startloc = loc + "?autoplay=1";
+                $(this).siblings('iframe').attr('src', startloc);
+            });
+
+            jQuery(this).on('click', '.youtube-link-stop', function(){
+                jQuery(this).parent().removeClass('active');
+
+                var loc = $(this).siblings('iframe').attr('src');
+                var stoploc = loc.replace("?autoplay=1", "");
+                $(this).siblings('iframe').attr('src', stoploc);
+            });
+        });
+    </script>
+
+	</body>
+</html>
