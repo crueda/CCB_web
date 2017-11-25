@@ -9,7 +9,37 @@
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-loading">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 
+		<script type="text/javascript">
+
+		function loadIframe(iframeName, url) {
+		    var $iframe = $('#' + iframeName);
+		    if ( $iframe.length ) {
+		        $iframe.attr('src',url);   
+		        return false;
+		    }
+		    return true;
+		}
+
+		$(document).ready(function() {
+			var height = $(window).height();
+			var width = $(window).width();
+
+			var width_main = $('#main').width();
+
+console.log("-->"+width_main);
+var frame_width = width_main-150;
+console.log("-->"+frame_width);
+//console.log("-->"+$('#frame').css("width").parent());
+			$('#frame').css("width", frame_width);
+			/*
+			if (ratio > 1.6) {
+	            $('#wrapper').removeClass('wrapper');
+    	        $('#wrapper').addClass('wrapper2');
+			}*/
+		});
+	</script>
 		<!-- Wrapper -->
 			<div id="wrapper">
 
@@ -23,8 +53,8 @@
 						<ul class="links">
 							<li><a href="index.html">Inicio</a></li>
 							<li><a href="rutas.html">Rutas</a></li>
-							<li><a href="equipacion.html">Equipación</a></li>
 							<li><a href="actividades.html">Próximas actividades</a></li>
+							<li><a href="equipacion.html">Equipación</a></li>
 							<li class="active"><a href="fotos.html">Fotos</a></li>
 							<li><a href="patrocinadores.html">Patrocinadores</a></li>
 						</ul>
@@ -38,7 +68,7 @@
 					<div id="main">
 
 						<!-- Post -->
-							<section class="post">
+							<section id="post" class="post">
 								<header class="major">
 									<!--h1>Galeria</h1-->
 									<h2>Fotos y videos</h2>
@@ -60,23 +90,24 @@
 
 												<tr>
 													<td>--</td>
-													<td>Fotós históricas del club</td>
-													<td><a href="https://photos.app.goo.gl/YWGu69ja5wbbO80t2" target="_blank" class="button">Ver</a></td>
+													<td>Fotós históricas del club</td>													
+													<td><a href="javascript:loadIframe('frame', 'https://socialgalleria.com/gallery.php?id=758113587569116&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0');" target="_blank" class="button">Ver</a></td>
 												</tr>
 												<tr>
-													<td>30/10/2017</td>
-													<td>Marcha de otoño. Club El piñon</td>
-													<td><a href="fotos/171029.html" class="button">Ver</a></td>
+													<td>17-09-17</td>
+													<td>XIX MARCHA CICLOTURISTA CIUDAD DE BENAVENTE</td>
+													<td><a href="javascript:loadIframe('frame', 'https://socialgalleria.com/gallery.php?id=1452612468119221&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0');" target="_blank" class="button">Ver</a></td>												</tr>
+												<tr>
+													<td>02-09-17</td>
+													<td>RUTA CLUB CICLISTA BENAVENTANO - SANABRIA - BRAGANZA</td>
+													<td><a href="javascript:loadIframe('frame', 'https://socialgalleria.com/gallery.php?id=1440435852670216&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0');" target="_blank" class="button">Ver</a></td>		
 												</tr>
 												<tr>
-													<td>21/08/2017</td>
-													<td>Clásica Puertos de Somiedo</td>
-													<td><a href="fotos/170821.html" class="button">Ver</a></td>
-												</tr>
-												<tr>
-													<td>13/08/2017</td>
-													<td>Rutas de verano</td>
-													<td><a href="fotos/170813.html" class="button">Ver</a></td>
+													<td>16-12-16</td>
+													<td>Cena Fin de Año'16 - Club Ciclista Benaventano</td>
+													<!--td><a href="fotos/170813.html" class="button">Ver</a></td-->
+													<!--td><a href="https://photos.app.goo.gl/YWGu69ja5wbbO80t2" target="_blank" class="button">Ver</a></td-->
+													<td><a href="javascript:loadIframe('frame', 'https://socialgalleria.com/gallery.php?id=1192658264114644&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0');" target="_blank" class="button">Ver</a></td>		
 												</tr>
 												
 											</tbody>
@@ -87,19 +118,19 @@
 									</div>
 
 <!-- historicas -->
-<iframe scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1566px;" src="https://socialgalleria.com/gallery.php?id=758113587569116&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0"></iframe>
+<iframe id="frame" scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1566px;" src=""></iframe>
 
 <!-- marcha -->
-<iframe scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1566px;" src="https://socialgalleria.com/gallery.php?id=1452612468119221&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0"></iframe>
+<!--iframe scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1566px;" src="https://socialgalleria.com/gallery.php?id=1452612468119221&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0"></iframe-->
 
 <!-- ruta sanabria braganza 02/09/17 -->
-<iframe scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1566px;" src="https://socialgalleria.com/gallery.php?id=1440435852670216&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0"></iframe>
+<!--iframe scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1566px;" src="https://socialgalleria.com/gallery.php?id=1440435852670216&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0"></iframe-->
 
 <!-- cena fin de año 16-12-16 -->
-<iframe scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1256px;" src="https://socialgalleria.com/gallery.php?id=1192658264114644&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0"></iframe>
+<!--iframe scrolling="no" marginheight="0" frameborder="0" width="1241" style="height: 1256px;" src="https://socialgalleria.com/gallery.php?id=1192658264114644&display=album&rows=5&margin=10&cols=4&width=300&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0"></iframe-->
 
 
-</div>
+
 									<hr />
 
 								<!-- Buttons -->
@@ -108,7 +139,7 @@
 								<!-- Image -->
 
 									<!--h3>Fit</h3-->
-									<span class="image fit"><img src="images/all.jpg" alt="" /></span>
+									<!--span class="image fit"><img src="images/all.jpg" alt="" /></span-->
 									
 							</section>
 
