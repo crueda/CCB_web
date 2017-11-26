@@ -12,6 +12,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css?1" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110194542-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-110194542-1');
+		</script>
 		<style>
 		.tab_logo {
 			background-image: url('./logos/titulo_club.png');
@@ -186,12 +195,32 @@ else if (document.getElementById) {
 			var width = $(window).width();
 			var ratio = (width/height).toFixed(1);
 
-			console.log(ratio);
-			
-			if (ratio < 1.6) {
+			//console.log(ratio);			
+			if (ratio < 1) {
+	            $('#wrapper').removeClass('wrapper');
+    	        $('#wrapper').addClass('wrapper3');
+			}else if (ratio < 1.6) {
 	            $('#wrapper').removeClass('wrapper');
     	        $('#wrapper').addClass('wrapper2');
 			}
+		});
+
+		$(window).on('resize', function () {    		
+    		var height = $(window).height();
+			var width = $(window).width();
+			var ratio = (width/height).toFixed(1);
+
+	        $('#wrapper').removeClass('wrapper');
+	        $('#wrapper').removeClass('wrapper2');
+	        $('#wrapper').removeClass('wrapper3');
+			//console.log(ratio);			
+			if (ratio < 1) {
+    	        $('#wrapper').addClass('wrapper3');
+			}else if (ratio < 1.6) {
+    	        $('#wrapper').addClass('wrapper2');
+			} else {
+    	        $('#wrapper').addClass('wrapper');
+			}   		
 		});
 	</script>
 
