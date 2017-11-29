@@ -4,3 +4,13 @@ live-server
 
 Galerias de fotos de fb:
 https://socialgalleria.com/?id=underarmour&display=album&albumid=747621825284959&exclude=&frame=1&shape=square&cols=4&rows=5&width=300&margin=10&title_color=000&font_size=11&share_buttons=1&hide_next_back=0#_=_
+
+
+
+
+mejoras:
+Activacion de https
+En acceso con pantallas verticales saco el logo
+mejoras posicionamiento?
+calendario: eventos!
+ALlbums de fb
