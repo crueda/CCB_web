@@ -1,0 +1,204 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Club Ciclista Benaventano</title>
+		<meta charset="utf-8" />
+  		<link href='./logos/maillot_mini.png' rel='shortcut icon' type='image/png'>
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="assets/css/main.css" />
+		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=UA-110194542-1"></script>
+		<script>
+		  window.dataLayer = window.dataLayer || [];
+		  function gtag(){dataLayer.push(arguments);}
+		  gtag('js', new Date());
+
+		  gtag('config', 'UA-110194542-1');
+		</script>
+	</head>
+	<body class="is-loading">
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+
+		<script type="text/javascript">
+
+		function loadIframe(iframeName, id) {
+			var width_wrapper = $('#wrapper').width();
+			var width_main = $('#main').width();
+			var frame_width = width_main - (width_wrapper-width_main);
+			var width_photo = (frame_width/3) - 20;
+			var url = 'https://socialgalleria.com/gallery.php?id=' + id  + '&display=album&rows=5&margin=10&cols=4&width=' + width_photo + '&font_size=11&title_color=000&hide_next_back=0&share_buttons=1&shape=square&frame=1&token=66ccbd14-d0e6-11e7-ab62-f8819c8be3d0';
+			console.log(width_photo);
+			$('#frame').css("height", (width_photo*5) + 40);
+		    var $iframe = $('#' + iframeName);
+		    if ( $iframe.length ) {
+		        $iframe.attr('src',url);   
+		        return false;
+		    }
+		    return true;
+		}
+
+		$(document).ready(function() {
+			var height = $(window).height();
+			var width = $(window).width();
+
+			var width_wrapper = $('#wrapper').width();
+			var width_main = $('#main').width();
+			var frame_width = width_main - (width_wrapper-width_main);
+
+//console.log("-->"+frame_width);
+//console.log("-->"+$('#frame').css("width").parent());
+			$('#frame').css("width", frame_width);
+			/*
+			if (ratio > 1.6) {
+	            $('#wrapper').removeClass('wrapper');
+    	        $('#wrapper').addClass('wrapper2');
+			}*/
+		});
+	</script>
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+					<header id="header">
+						<a href="index.html" class="logo">Club Ciclista Benaventano</a>
+					</header>
+
+				<!-- Nav -->
+					<nav id="nav">
+						<ul class="links">
+							<li><a href="index.html">Inicio</a></li>
+							<li><a href="actividades.html">Actividades</a></li>
+							<li><a href="prensa.html">Noticias</a></li>
+							<li><a href="fotos.html">Fotos</a></li>
+							<li><a href="rutas.html">Rutas</a></li>
+							<li><a href="equipacion.html">Equipación</a></li>
+							<li class="active"><a href="decalogo.html">Decálogo</a></li>
+						</ul>
+						<ul class="icons">
+							<li><a href="mailto:info@clubciclistabenaventano.es" class="icon fa-send" target="_top"><span class="label">Email</span></a></li>
+							<li><a href="https://www.facebook.com/CLUB-CICLISTA-BENAVENTANO-747532295293912/" class="icon fa-facebook" target="_blank"><span class="label">Facebook</span></a></li>
+							<li><a href="https://www.instagram.com/clubciclistabenaventano/?hl=es" class="icon fa-instagram" target="_blank"><span class="label">Instagram</span></a></li>
+						</ul>
+					</nav>
+
+				<!-- Main -->
+					<div id="main">
+
+						<!-- Post -->
+							<section id="post" class="post">
+								<header class="major">
+									<!--h1>Galeria</h1-->
+									<h2>Decálogo</H2><h3>interno del Club Ciclista Benaventano</h3>
+								</header>
+
+																	
+									<h3>1. Objetivo</h3>
+									<div class="box">
+										<p>El CLUB CICLISTA BENAVENTANO tiene como principal objetivo la <b>práctica y promoción del ciclismo en la ciudad de Benavente y su comarca</b>, organizando rutas programadas entre otras actividades.</p>
+										<p>Las rutas organizadas por el Club, tienen como principal finalidad, <b>compartir una jordana de ciclismo</b>, disfrutando de la compañía a la vez que realizamos una actividad deportiva.</p>
+									</div>
+
+									<h3>2. Participación</h3>
+									<div class="box">										
+										<p>En las rutas podrán participar <b>socios e invitados</b>, y todos deberán <b>respetar las normas del Club</b>, especialmente las recomendaciones en materia de seguridad.</p>
+										<p>Todos los socios e invitados que participen en las rutas del Club, deben colaborar en el correcto desarrollo de las mismas y mantener el orden del grupo, respetando y confiando en el resto de compañeros, mostrando en todo momento una <b>actitud positiva</b> que contribuya a crear un <b>buen clima</b> de compañerismo en el entorno social y deportivo del Club.</p>
+									</div>
+
+									<h3>3. Equipación</h3>
+									<div class="box">										
+										<p>En las rutas y actividades que se realicen en representación del CLUB CICLISTA BENAVENTANO, se <b>recomienda</b> vestir la equipación oficial del Club.</p>
+									</div>
+
+									<h3>4. Recorridos</h3>
+									<div class="box">										
+										<p>El recorrido de las rutas del Club y su horario, se <b>anunciarán con antelación</b> a los socios y se <b>respetará su recorrido</b>, salvo que por causa mayor sea necesario su modificación.</p>
+										<p>Las rutas se dividen en dos partes, una primera con final en el punto designado como “Parada Café”, y la segunda desde la reanudación de la ruta hasta el final de la misma. El grupo <b>rodará unido en la medida de lo posible</b> hasta los últimos kilómetros de cada parte, en los cuales se podrá incrementar la velocidad.</p>
+									</div>
+
+									<h3>5. Normativa</h3>
+									<div class="box">										
+										<p>En las rutas se habrán de cumplir estrictamente las normas establecidas en la <b>legislación vigente</b>, Ley de Tráfico y Código General de Circulación (Real Decreto 1428/2003, de 21 de noviembre).</p>
+									</div>
+
+									<h3>6. Seguridad</h3>
+									<div class="box">										
+										<p>Al final de cada parte o cuando sea preciso, <b>se buscará la unidad del grupo</b>, bien sea esperando a que lleguen todos los compañeros o directamente, rodando en dirección contraria hasta conseguir el total reagrupamiento.</p>
+										<p>Tanto en la salida de la ruta, como en la reanudación de la misma, se prestará especial atención en hacerlo de manera conjunta, buscando de inmediato la unidad del grupo.</p>
+										<p>Los cambios de sentido de la marcha ante percances o cuando se trate de buscar a algún rezagado, <b>se harán de forma conjunta</b>, en un punto seguro y extremando las precauciones.</p>
+									</div>
+
+									<h3>7. Incidencias</h3>
+									<div class="box">										
+										<p>Ante percances como pinchazos o averías, nos aseguraremos de que <b>algunos compañeros</b> se queden solucionando el problema con el afectado, mientras que el resto del grupo seguirá rodando a un ritmo más lento durante unos pocos kilómetros más, buscando un punto en el que se pueda invertir el sentido de la marcha <b>con seguridad y todos a la vez</b>, hasta volver a conseguir la unidad del grupo con los compañeros rezagados y reanudar de nuevo el trazado previsto.</p>
+										<p>Si durante transcurso de la ruta, algún integrante del grupo, decide no completar el recorrido, abandonando la ruta establecida, <b>se asegurará</b> de que el resto de compañeros se percaten de dicha circunstancia.</p>
+									</div>
+
+									<h3>8. Vehículo de apoyo</h3>
+									<div class="box">										
+										<p>El vehículo de apoyo en las rutas del Club, servirá de <b>protección</b> a la unidad del grupo, ira provisto de <b>material de repuesto y herramientas</b>, y se podrá utilizar para llevar o depositar ropa complementaria y avituallamiento.</p>
+									</div>
+
+									<h3>9. Seguro</h3>
+									<div class="box">										
+										<p>El CLUB CICLISTA BENAVENTANO dispone de un <b>seguro de responsabilidad civil, frente a terceros</b>, para cubrir los posibles daños materiales que, involuntariamente, se pudieran producir durante la ruta. Se recomienda a los socios la obtención de la licencia federativa con su correspondiente seguro de accidentes.</p>
+									</div>
+
+									<h3>10. Difusión</h3>
+									<div class="box">										
+										Los participantes autorizan al CLUB CICLISTA BENAVENTANO a hacer uso del <b>material fotográfico y audiovisual</b> de las actividades que se lleven a cabo en el Club y que podrán ser usadas para:
+										<li><b>Difusión</b> de las actividades y eventos a través de la página web, blog y redes sociales del Club.</li>
+										<li><b>Uso interno</b> en memorias y proyectos del Club.</li>
+										<li><b>Documentos y material gráfico</b> impreso como carteles, folletos y manuales.</li>
+										<br/><p>Si por cualquier circunstancia, algún participante así lo decida, podrá <b>solicitar la cancelación de la autorización</b>, así como la retirada del material donde aparezca su imagen, simplemente comunicándolo de manera fehaciente al Club, por cualquier medio.</p>
+
+									</div>
+
+							<h3>
+<a href="decalogo.pdf" target="_blank"><span class="label">Ver en PDF</span></a>
+							</h3>
+
+							</section>
+
+
+
+
+					</div>
+
+				<!-- Footer -->
+					<footer id="footer">
+						
+						<section class="split contact">
+							<section>
+								<h3>Teléfono y whatsapp</h3>
+								<a href="tel:+34615090832">615 090 832</a>&nbsp;(Luismi)&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;<a href="tel:+34625351394">625 35 13 94</a>&nbsp;(Angel)</p>
+							</section>
+							<section>
+								<h3>Email</h3>
+								<p><a href="mailto:info@clubciclistabenaventano.es" traget="_top">info@clubciclistabenaventano.es</a></p>
+							</section>
+							<section class="alt">
+								<h3>Direccion</h3>
+								<p>Calle Corrillo de San Nicolás, 4<br />
+								49600, Benavente</p>
+							</section>
+						</section>
+					</footer>
+
+				<!-- Copyright -->
+					<div id="copyright">
+						<ul><li>&copy; 2017</li><li><a href="https://clubciclistabenaventano.es">Club Ciclista Benaventano</a></li></ul>
+					</div>
+
+			</div>
+
+		<!-- Scripts -->
+			<script src="assets/js/jquery.min.js"></script>
+			<script src="assets/js/jquery.scrollex.min.js"></script>
+			<script src="assets/js/jquery.scrolly.min.js"></script>
+			<script src="assets/js/skel.min.js"></script>
+			<script src="assets/js/util.js"></script>
+			<script src="assets/js/main.js"></script>
+
+	</body>
+</html>
