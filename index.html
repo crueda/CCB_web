@@ -10,6 +10,10 @@
 		<meta name="description" content="Página web oficial del club ciclista benaventano. Club deportivo afincado en benavente para promocionar el ciclismo en la comarca de Benavente y provincia de Zamora" />
 		<meta charset="utf-8" />
   		<link href='./logos/maillot_mini.png' rel='shortcut icon' type='image/png'/>
+		<meta http-equiv="Expires" content="0">
+ 		<meta http-equiv="Last-Modified" content="0">
+ 		<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+		<meta http-equiv="Pragma" content="no-cache">
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css?1" />
 		<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120-precomposed.png" /> <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152-precomposed.png" />
@@ -39,7 +43,11 @@
 			background-repeat: no-repeat;
 			background-size: 100%  100%;
 		}
-
+		.anuncio {
+/*			display: flex;
+			width: 50px;
+  flex-wrap: wrap; */
+		}
 		</style>
 
 
@@ -62,6 +70,15 @@
 			}else if (ratio < 1.6) {
 	            $('#wrapper').removeClass('wrapper');
     	        $('#wrapper').addClass('wrapper2');
+			}
+
+			if (isMobile()) {
+				$("#banner1").css("width", "100");
+				$("#banner2").css("width", "100");
+				$("#banner3").css("width", "100");
+				$("#banner4").css("width", "100");
+				$("#banner5").css("width", "100");
+				$("#banner6").css("width", "100");
 			}
 		});
 
@@ -165,11 +182,15 @@
 		}
 	</script>
 
-	<div id='anuncio'>
-	<a href='http://www.restaurantelosvalles.es/e' target='_blank'><img width="200" heigth="80" src='patrocinadores/losvalles_banner.png'/></a>
-	<a href='https://www.paginasamarillas.es/f/benavente/garaje-rufino_014258875_000000001.html' target='_blank'><img width="200" src='patrocinadores/rufino_banner.png'/></a>
-	<a href='http://www.hyundai.es/concesionarios/pragamovil' target='_blank'><img width="200" src='patrocinadores/hyundai_banner.png'/></a>
-	<a href='Javascript:void' onClick='closebar(); return false'><img align='right' border='0' src='./images/icono-cerrar.png'/></a><br />
+	<div id='anuncio' class="anuncio">
+	<a href='Javascript:void' onClick='closebar(); return false'><img align='left' border='0' src='./images/icono-cerrar.png'/></a><br />
+	<a href='http://www.restaurantelosvalles.es/e' target='_blank'><img id="banner1" width="200" heigth="80" src='patrocinadores/losvalles_banner.png'/></a>
+	<a href='https://www.paginasamarillas.es/f/benavente/garaje-rufino_014258875_000000001.html' target='_blank'><img id="banner2" width="200" src='patrocinadores/rufino_banner.png'/></a>
+	<a href='http://www.hyundai.es/concesionarios/pragamovil' target='_blank'><img id="banner3" width="200" src='patrocinadores/hyundai_banner.png'/></a>
+	<a href='http://www.avicolagalocha.es/' target='_blank'><img id="banner4" width="200" src='patrocinadores/galocha_banner.png'/></a>
+	<a href='https://www.facebook.com/dualbikebenavente/' target='_blank'><img id="banner5" width="200" src='patrocinadores/dual_banner.png'/></a>
+	<br/>
+	<a href='Javascript:void' onClick='closebar(); return false'><img align='left' border='0' src='./images/icono-cerrar.png'/></a><br />
 	</div>
 		<!-- Wrapper -->
 			<div id="wrapper" class="wrapper fade-in">
@@ -363,6 +384,9 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script  src="js/index.js"></script>
+
 	  		<!--script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script-->
 
 	</body>

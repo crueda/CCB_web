@@ -3,6 +3,11 @@
 	<head>
 		<title>Club Ciclista Benaventano</title>
 		<meta charset="utf-8" />
+		<meta http-equiv="Expires" content="0">
+ 		<meta http-equiv="Last-Modified" content="0">
+ 		<meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+		<meta http-equiv="Pragma" content="no-cache">
+
   		<link href='./logos/maillot_mini.png' rel='shortcut icon' type='image/png'>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
@@ -54,6 +59,16 @@
 	            $('#wrapper').removeClass('wrapper');
     	        $('#wrapper').addClass('wrapper2');
 			}*/
+
+			if (isMobile()) {
+				$("#banner1").css("width", "100");
+				$("#banner2").css("width", "100");
+				$("#banner3").css("width", "100");
+				$("#banner4").css("width", "100");
+				$("#banner5").css("width", "100");
+				$("#banner6").css("width", "100");
+			}
+
 		});
 	</script>
 
@@ -137,11 +152,15 @@
 		}
 	</script>
 
-	<div id='anuncio'>
-	<a href='http://www.restaurantelosvalles.es/e' target='_blank'><img width="200" heigth="80" src='patrocinadores/losvalles_banner.png'/></a>
-	<a href='https://www.paginasamarillas.es/f/benavente/garaje-rufino_014258875_000000001.html' target='_blank'><img width="200" src='patrocinadores/rufino_banner.png'/></a>
-	<a href='http://www.hyundai.es/concesionarios/pragamovil' target='_blank'><img width="200" src='patrocinadores/hyundai_banner.png'/></a>
-	<a href='Javascript:void' onClick='closebar(); return false'><img align='right' border='0' src='./images/icono-cerrar.png'/></a><br />
+	<div id='anuncio' class="anuncio">
+	<a href='Javascript:void' onClick='closebar(); return false'><img align='left' border='0' src='./images/icono-cerrar.png'/></a><br />
+	<a href='http://www.restaurantelosvalles.es/e' target='_blank'><img id="banner1" width="200" heigth="80" src='patrocinadores/losvalles_banner.png'/></a>
+	<a href='https://www.paginasamarillas.es/f/benavente/garaje-rufino_014258875_000000001.html' target='_blank'><img id="banner2" width="200" src='patrocinadores/rufino_banner.png'/></a>
+	<a href='http://www.hyundai.es/concesionarios/pragamovil' target='_blank'><img id="banner3" width="200" src='patrocinadores/hyundai_banner.png'/></a>
+	<a href='http://www.avicolagalocha.es/' target='_blank'><img id="banner4" width="200" src='patrocinadores/galocha_banner.png'/></a>
+	<a href='https://www.facebook.com/dualbikebenavente/' target='_blank'><img id="banner5" width="200" src='patrocinadores/dual_banner.png'/></a>
+	<br/>
+	<a href='Javascript:void' onClick='closebar(); return false'><img align='left' border='0' src='./images/icono-cerrar.png'/></a><br />
 	</div>
 
 		<!-- Wrapper -->
@@ -239,11 +258,15 @@
 										<li><b>Uso interno</b> en memorias y proyectos del Club.</li>
 										<li><b>Documentos y material gráfico</b> impreso como carteles, folletos y manuales.</li>
 										<br/><p>Si por cualquier circunstancia, algún participante así lo decida, podrá <b>solicitar la cancelación de la autorización</b>, así como la retirada del material donde aparezca su imagen, simplemente comunicándolo de manera fehaciente al Club, por cualquier medio.</p>
-
+										<p>El CLUB CICLISTA BENAVENTANO dispone de un grupo oficial de WhatsApp con el fin de comunicarse con los socios del Club, utilizando este canal exclusivamente para temas relacionados con asuntos, actividades, eventos, rutas e información del propio Club.</p>
+										<li>No está permitido el uso del Grupo Oficial del Club para el envío de fotos, videos, archivos y comentarios que supongan una discriminación en razón de nacimiento, edad, sexo, etnia, color, origen social, idioma; religión, filiación política, posición económica, orientación sexual; estado de salud, discapacidad, o diferencia de cualquier otra índole. </li>
+										<li>Adicionalmente, no está autorizado el uso del grupo de WhatsApp para fines comerciales y actividades lucrativas sin previa comunicación y acuerdo con la Junta Directiva.</li>
+										<li>Se regularán los contenidos e incidencias en el Grupo por parte de la Junta Directiva y se advertirán los comportamientos inadecuados y que no cumplan con la presente normativa, con el objetivo último de preservar la buena imagen del Club y el bienestar de todos sus socios.</li>
 									</div>
 
 							<h3>
-<a href="decalogo.pdf" target="_blank"><span class="label">Ver en PDF</span></a>
+<!--a href="decalogo.pdf" target="_blank"><span class="label">Ver en PDF</span></a-->
+<script>document.write('<a href="decalogo.pdf?' + (new Date()).getTime() + '" target="_blank"><span class="label">Ver en PDF</span></a>')</script>
 							</h3>
 
 							</section>
@@ -287,6 +310,8 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+
+			<script  src="js/index.js"></script>
 
 	</body>
 </html>
